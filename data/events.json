@@ -1,0 +1,302 @@
+[
+  {
+    "id": 1,
+    "year": 1972,
+    "date": "1972-05-01",
+    "title": "Magnavox Odyssey",
+    "type": "console",
+    "generation": "1st",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Magnavox-Odyssey-Console-Set.jpg/1200px-Magnavox-Odyssey-Console-Set.jpg",
+    "description": "The world's first home video game console. Sold about 330,000 units."
+  },
+  {
+    "id": 2,
+    "year": 1972,
+    "date": "1972-11-01",
+    "title": "Pong",
+    "type": "game",
+    "generation": "1st",
+    "image": "https://media.wired.com/photos/59fccff22d3f5732c7d5aa15/3:2/w_2560%2Cc_limit/Pong-TA-B1C1YX.jpg",
+    "description": "Atari releases Pong, one of the first arcade games to gain major commercial success."
+  },
+  {
+    "id": 3,
+    "year": 1976,
+    "date": "1976-04-01",
+    "title": "Breakout",
+    "type": "game",
+    "generation": "1st",
+    "image": "images/breakout.png",
+    "description": "Atari releases Breakout, designed with early involvement from Steve Jobs and Steve Wozniak."
+  },
+  {
+    "id": 4,
+    "year": 1977,
+    "date": "1977-09-01",
+    "title": "Atari 2600",
+    "type": "console",
+    "generation": "2nd",
+    "image": "images/atari2600.png",
+    "description": "One of the most influential game consoles, popularizing ROM cartridges."
+  },
+  {
+    "id": 5,
+    "year": 1978,
+    "date": "1978-06-01",
+    "title": "Space Invaders",
+    "type": "game",
+    "generation": "2nd",
+    "image": "images/space-invaders.png",
+    "description": "A landmark arcade shooter that sparked a global gaming craze."
+  },
+  {
+    "id": 6,
+    "year": 1980,
+    "date": "1980-05-22",
+    "title": "Pac-Man",
+    "type": "game",
+    "generation": "2nd",
+    "image": "images/pacman.png",
+    "description": "Pac-Man becomes a cultural icon and one of the most successful arcade games ever."
+  },
+  {
+    "id": 7,
+    "year": 1981,
+    "date": "1981-07-09",
+    "title": "Donkey Kong",
+    "type": "game",
+    "generation": "2nd",
+    "image": "images/donkey-kong.png",
+    "description": "Introduced Mario (then Jumpman) and established Nintendo as a major game developer."
+  },
+  {
+    "id": 8,
+    "year": 1982,
+    "date": "1982-02-01",
+    "title": "Tron Arcade",
+    "type": "game",
+    "generation": "2nd",
+    "image": "images/tron.png",
+    "description": "An arcade game inspired by the Tron movie; represents early movie–game crossovers."
+  },
+  {
+    "id": 9,
+    "year": 1983,
+    "date": "1983-07-15",
+    "title": "Famicom / NES",
+    "type": "console",
+    "generation": "3rd",
+    "image": "images/nes.png",
+    "description": "Nintendo releases the Famicom in Japan. Later becomes the NES worldwide, reviving the game industry."
+  },
+  {
+    "id": 10,
+    "year": 1984,
+    "date": "1984-06-06",
+    "title": "Tetris",
+    "type": "game",
+    "generation": "3rd",
+    "image": "images/tetris.png",
+    "description": "One of the most influential puzzle games ever, designed by Alexey Pajitnov."
+  },
+  {
+    "id": 11,
+    "year": 1985,
+    "date": "1985-09-13",
+    "title": "Super Mario Bros.",
+    "type": "game",
+    "generation": "3rd",
+    "image": "images/super-mario.png",
+    "description": "Revolutionizes platformers and becomes one of the best-selling games of all time."
+  },
+  {
+    "id": 12,
+    "year": 1986,
+    "date": "1986-02-21",
+    "title": "The Legend of Zelda",
+    "type": "game",
+    "generation": "3rd",
+    "image": "images/zelda.png",
+    "description": "Introduces open-world exploration and becomes one of Nintendo's flagship franchises."
+  },
+  {
+    "id": 13,
+    "year": 1987,
+    "date": "1987-07-07",
+    "title": "Street Fighter",
+    "type": "game",
+    "generation": "3rd",
+    "image": "images/street-fighter.png",
+    "description": "Capcom releases the first Street Fighter, paving the way for future fighting games."
+  },
+  {
+    "id": 14,
+    "year": 1988,
+    "date": "1988-10-29",
+    "title": "Sega Mega Drive / Genesis",
+    "type": "console",
+    "generation": "4th",
+    "image": "images/genesis.png",
+    "description": "Sega's most successful console, known for fast arcade-style gameplay."
+  },
+  {
+    "id": 15,
+    "year": 1989,
+    "date": "1989-04-21",
+    "title": "Game Boy",
+    "type": "console",
+    "generation": "4th",
+    "image": "images/gameboy.png",
+    "description": "Nintendo releases the Game Boy, defining handheld gaming for decades."
+  },
+  {
+    "id": 16,
+    "year": 1990,
+    "date": "1990-11-21",
+    "title": "Super Famicom / SNES",
+    "type": "console",
+    "generation": "4th",
+    "image": "images/snes.png",
+    "description": "Nintendo releases the SNES with enhanced graphics and iconic first-party titles."
+  },
+  {
+    "id": 17,
+    "year": 1991,
+    "date": "1991-06-23",
+    "title": "Sonic the Hedgehog",
+    "type": "game",
+    "generation": "4th",
+    "image": "images/sonic.png",
+    "description": "Sega introduces Sonic, becoming a strong competitor to Nintendo's Mario."
+  },
+  {
+    "id": 18,
+    "year": 1992,
+    "date": "1992-02-05",
+    "title": "Mortal Kombat",
+    "type": "game",
+    "generation": "4th",
+    "image": "images/mk.png",
+    "description": "Known for digitized graphics and violent gameplay; led to the creation of ESRB ratings."
+  },
+  {
+    "id": 19,
+    "year": 1993,
+    "date": "1993-12-03",
+    "title": "DOOM",
+    "type": "game",
+    "generation": "5th",
+    "image": "images/doom.png",
+    "description": "Popularizes the FPS genre and multiplayer deathmatch."
+  },
+  {
+    "id": 20,
+    "year": 1994,
+    "date": "1994-12-03",
+    "title": "PlayStation",
+    "type": "console",
+    "generation": "5th",
+    "image": "images/ps1.png",
+    "description": "Sony enters the market and dominates 3D gaming with CD-ROM technology."
+  },
+  {
+    "id": 21,
+    "year": 1996,
+    "date": "1996-06-23",
+    "title": "Nintendo 64",
+    "type": "console",
+    "generation": "5th",
+    "image": "images/n64.png",
+    "description": "Known for Super Mario 64 and Ocarina of Time, setting new 3D gameplay standards."
+  },
+  {
+    "id": 22,
+    "year": 1997,
+    "date": "1997-01-31",
+    "title": "Final Fantasy VII",
+    "type": "game",
+    "generation": "5th",
+    "image": "images/ff7.png",
+    "description": "A landmark JRPG that popularized the genre worldwide."
+  },
+  {
+    "id": 23,
+    "year": 1998,
+    "date": "1998-11-21",
+    "title": "The Legend of Zelda: Ocarina of Time",
+    "type": "game",
+    "generation": "5th",
+    "image": "images/oot.png",
+    "description": "Often considered one of the greatest games ever made."
+  },
+  {
+    "id": 24,
+    "year": 1999,
+    "date": "1999-03-04",
+    "title": "Dreamcast",
+    "type": "console",
+    "generation": "6th",
+    "image": "images/dreamcast.png",
+    "description": "First console with built-in online connectivity; ahead of its time."
+  },
+  {
+    "id": 25,
+    "year": 2000,
+    "date": "2000-03-04",
+    "title": "PlayStation 2",
+    "type": "console",
+    "generation": "6th",
+    "image": "images/ps2.png",
+    "description": "The best-selling console in history with over 155 million units sold."
+  },
+  {
+    "id": 26,
+    "year": 2001,
+    "date": "2001-11-15",
+    "title": "Xbox",
+    "type": "console",
+    "generation": "6th",
+    "image": "images/xbox.png",
+    "description": "Microsoft enters gaming; Halo becomes a defining FPS franchise."
+  },
+  {
+    "id": 27,
+    "year": 2001,
+    "date": "2001-03-21",
+    "title": "Game Boy Advance",
+    "type": "console",
+    "generation": "6th",
+    "image": "images/gba.png",
+    "description": "Nintendo's 32-bit handheld console with major graphical improvements."
+  },
+  {
+    "id": 28,
+    "year": 2004,
+    "date": "2004-11-21",
+    "title": "Nintendo DS",
+    "type": "console",
+    "generation": "6th",
+    "image": "images/ds.png",
+    "description": "Dual-screen touchscreen device that becomes the best-selling handheld ever."
+  },
+  {
+    "id": 29,
+    "year": 2005,
+    "date": "2005-11-22",
+    "title": "Xbox 360",
+    "type": "console",
+    "generation": "7th",
+    "image": "images/xbox360.png",
+    "description": "Brings HD gaming and Xbox Live to the mainstream."
+  },
+  {
+    "id": 30,
+    "year": 2006,
+    "date": "2006-11-19",
+    "title": "Nintendo Wii",
+    "type": "console",
+    "generation": "7th",
+    "image": "images/wii.png",
+    "description": "Introduces motion controls and becomes a global phenomenon."
+  }
+]
