@@ -1,15 +1,74 @@
 // svg width height
-const viewWidth = 1400;
-const viewHeight = 700;
+const viewHeight = 800;
+const viewWidth = document.getElementById("timeline-container").clientWidth;
 
-
-
-// select svg
 const svg = d3.select("#timeline")
-    .attr("width", viewWidth)
-    .attr("height", viewHeight);
+    .attr("viewBox", `0 0 ${viewWidth} ${viewHeight}`)
+    .attr("preserveAspectRatio", "xMidYMid meet")
+    .style("width", "100%") 
+    .style("height", `${viewHeight}px`);
+
+// // select svg
+// const svg = d3.select("#timeline")
+//     .attr("width", viewWidth)
+//     .attr("height", viewHeight);
 
 const container = svg.append("g");
+
+// detail elements and video mapping
+const detailEls = {
+    meta: d3.select("#detail-meta"),
+    title: d3.select("#detail-title"),
+    description: d3.select("#detail-description"),
+    video: document.getElementById("detail-video"),
+    image: document.getElementById("detail-image")
+};
+
+const videoMap = {
+    "Magnavox Odyssey": "https://www.youtube.com/embed/oVV2Fe6Z9xo",
+    "Pong": "https://www.youtube.com/embed/fiShX2pTz9A",
+    "Breakout": "https://www.youtube.com/embed/Ad6qZfwtQ6o",
+    "Space Invaders": "https://www.youtube.com/embed/Qx7ehbWDiSM",
+    "Pac-Man": "https://www.youtube.com/embed/XYzO9nEknhA",
+    "Donkey Kong": "https://www.youtube.com/embed/NthIhZy44_g",
+    "Famicom / NES": "https://www.youtube.com/embed/vXzYH7dDxXY",
+    "Super Mario Bros.": "https://www.youtube.com/embed/SN8pNdCDo1k",
+    "The Legend of Zelda": "https://www.youtube.com/embed/JmupJcIDyBQ",
+    "Sega Mega Drive / Genesis": "https://www.youtube.com/embed/4eCQGMZvbBg",
+    "Game Boy": "https://www.youtube.com/embed/-uPAV1ykKNs",
+    "DOOM": "https://www.youtube.com/embed/Wgxek3GR4s4",
+    "PlayStation": "https://www.youtube.com/embed/T-AVB3z0Gf0",
+    "Nintendo 64": "https://www.youtube.com/embed/1PCs1el-mW8",
+    "Nintendo Wii": "https://www.youtube.com/embed/Qt1b2T2te6E"
+};
+
+const buildMeta = (d) => `${d.year} \u00b7 ${d.type === "console" ? "Console" : "Game"} \u00b7 ${d.generation} gen`;
+
+const normalizeEmbed = (url) => {
+    if (!url) return "";
+    if (url.includes("watch?v=")) return url.replace("watch?v=", "embed/");
+    if (url.includes("youtu.be/")) return url.replace("youtu.be/", "youtube.com/embed/");
+    return url;
+};
+
+function renderDetail(d) {
+    if (!d) return;
+    detailEls.meta.text(buildMeta(d));
+    detailEls.title.text(d.title);
+    detailEls.description.text(d.description);
+    const embedUrl = normalizeEmbed(d.video || videoMap[d.title] || "");
+
+    if (embedUrl) {
+        detailEls.video.src = embedUrl;
+        detailEls.video.style.display = "block";
+        detailEls.image.style.display = "none";
+    } else {
+        detailEls.video.src = "";
+        detailEls.video.style.display = "none";
+        detailEls.image.src = d.image;
+        detailEls.image.style.display = "block";
+    }
+}
 
 // color per generation
 const generations = [
@@ -23,16 +82,18 @@ const generations = [
 ];
 
 // length per generation
-const genWidth = 800;
+const genWidth = 1200;
+const cardWidth = 200;
+const paddingEnd = cardWidth + 120; // room for the last card
 let genX = 0;
 
-// timeline width
-const timelineWidth = genWidth * generations.length;
+// timeline width (add padding so the last card isn't clipped)
+const timelineWidth = genWidth * generations.length + paddingEnd;
 
 // drag activiate
 const zoom = d3.zoom()
     .scaleExtent([1, 1])        //only drag to move
-    .translateExtent([[0, 0], [timelineWidth, viewHeight]])
+    .translateExtent([[-80, 0], [timelineWidth, viewHeight]])
     .on("zoom", (event) => {
         container.attr("transform", event.transform);
     });
@@ -69,7 +130,7 @@ d3.json("data/events.json").then(events => {
     // xScale: 날짜 → 가로 좌표
     const xScale = d3.scaleTime()
         .domain([new Date(1972, 0, 1), new Date(2007, 0, 1)])
-        .range([0, timelineWidth]);
+        .range([0, timelineWidth - paddingEnd]);
 
     // card group
     const card = container.selectAll("g.card")
@@ -86,7 +147,7 @@ d3.json("data/events.json").then(events => {
         });
     // cardbox
     card.append("rect")
-        .attr("width", 180)
+        .attr("width", 200)
         .attr("height", 180)
         .attr("fill", "white")
         .attr("stroke", "#aaa")
@@ -109,18 +170,34 @@ d3.json("data/events.json").then(events => {
         .attr("font-size", 18);
 
     // title
-    card.append("text")
-        .text(d => d.title)
+    card.append("foreignObject")
         .attr("x", 95)
-        .attr("y", 55)
-        .attr("font-size", 12)
-        .attr("fill", "#444");
+        .attr("y", 35)
+        .attr("width", 95)
+        .attr("height", 60) 
+        .append("xhtml:div")
+        .style("height", "100%")
+        .style("display", "flex")
+        .style("align-items", "center")   
+        .style("justify-content", "flex-start")
+        .style("font", "13px sans-serif-Bold")
+        .style("color", "#131313ff")
+        .style("overflow", "hidden")
+        .style("line-height", "1.35")
+        .style("display", "-webkit-box")
+        .style("-webkit-line-clamp", "3")
+        .style("-webkit-box-orient", "vertical")
+        .style("text-overflow", "ellipsis")
+        .attr("height", 38) 
+        .style("padding-top", "2px")
+        .text(d => d.title);
+
 
     // description
     card.append("foreignObject")
     .attr("x", 10)
     .attr("y", 95)
-    .attr("width", 160)
+    .attr("width", 180)
     .attr("height", 70)
     .append("xhtml:div")
     .style("font", "11px sans-serif")
@@ -142,7 +219,7 @@ d3.json("data/events.json").then(events => {
             console.log('card mouseover', {x, y, id: d.id || d.title});
             el.raise();
             el.transition()
-                .duration(180)
+                .duration(10)
                 .attr("transform", `translate(${x}, ${y - 12}) scale(1.03)`);
         })
         .on("mouseout", function(event, d) {
@@ -151,7 +228,15 @@ d3.json("data/events.json").then(events => {
             const y = +el.attr("data-y") || 0;
             console.log('card mouseout', {x, y, id: d.id || d.title});
             el.transition()
-                .duration(180)
+                .duration(10)
                 .attr("transform", `translate(${x}, ${y}) scale(1)`);
+        })
+        .on("click", function(event, d) {
+            renderDetail(d);
         });
+
+    // seed detail panel with the first event
+    if (events.length > 0) {
+        renderDetail(events[0]);
+    }
 });

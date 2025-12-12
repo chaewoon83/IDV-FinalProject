@@ -15,6 +15,29 @@
         <svg id="timeline"></svg>
     </div>
 
+    <section id="detail-panel">
+        <div class="detail-inner">
+            <div class="detail-media">
+                <iframe
+                    id="detail-video"
+                    class="video-frame"
+                    src=""
+                    title="Video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                ></iframe>
+                <img id="detail-image" class="detail-image" alt="Event visual" />
+            </div>
+            <div class="detail-body">
+                <p class="detail-meta" id="detail-meta">Select a card to see more.</p>
+                <h2 class="detail-title" id="detail-title">Pick an event</h2>
+                <p class="detail-description" id="detail-description">
+                    Click any card on the timeline to view a longer description and a related video.
+                </p>
+            </div>
+        </div>
+    </section>
+
     <script src="js/main.js"></script>
 </body>
 </html>
