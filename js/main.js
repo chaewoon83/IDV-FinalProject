@@ -190,7 +190,7 @@ const generations = [
 ];
 
 // length per generation
-const genWidth = 800;
+const genWidth = 1000;
 const cardWidth = 200;
 let genX = 0;
 
@@ -200,7 +200,7 @@ const timelineWidth = genWidth * generations.length;
 // drag activiate
 const zoom = d3.zoom()
     .scaleExtent([1, 1])        //only drag to move
-    .translateExtent([[-80, 0], [timelineWidth, viewHeight]])
+    .translateExtent([[0, 0], [timelineWidth, viewHeight]])
     .on("zoom", (event) => {
         container.attr("transform", event.transform);
     });
@@ -233,13 +233,12 @@ container.selectAll("text.genlabel")
 
 // retrieve json datas
 d3.json("data/events.json").then(events => {
-    
+
     const eventExtent = d3.extent(events, d => new Date(d.date));
 
     const xScale = d3.scaleTime()
-        .domain(eventExtent)
+        .domain([new Date(1972, 0, 1), new Date(2001, 0, 1)])
         .range([0, timelineWidth]);
-
     // card group
     const card = container.selectAll("g.card")
         .data(events)
@@ -248,15 +247,15 @@ d3.json("data/events.json").then(events => {
         .attr("class", "card")
         .attr("transform", function(d, i) {
             const x = xScale(new Date(d.date));
-            const y = (i % 2 === 0) ? 100 : 320; 
+            const y = (i % 2 === 0) ? 80 : 250; 
             // store original coords as attributes so hover handlers can use them
             d3.select(this).attr("data-x", x).attr("data-y", y);
             return `translate(${x}, ${y})`;
         });
     // cardbox
     card.append("rect")
-        .attr("width", 200)
-        .attr("height", 180)
+        .attr("width", 220)
+        .attr("height", 120)
         .attr("fill", "white")
         .attr("stroke", "#aaa")
         .attr("rx", 10);
@@ -266,20 +265,20 @@ d3.json("data/events.json").then(events => {
         .attr("href", d => d.image)
         .attr("x", 10)
         .attr("y", 10)
-        .attr("width", 70)
-        .attr("height", 70);
+        .attr("width", 90)
+        .attr("height", 90);
 
     // year
     card.append("text")
         .text(d => d.year)
-        .attr("x", 95)
+        .attr("x", 115)
         .attr("y", 30)
         .attr("font-weight", "bold")
         .attr("font-size", 18);
 
     // title
     card.append("foreignObject")
-        .attr("x", 95)
+        .attr("x", 115)
         .attr("y", 35)
         .attr("width", 95)
         .attr("height", 60) 

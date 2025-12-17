@@ -9,35 +9,363 @@
 <body>
 
     <h1 class="title">History of Video Games</h1>
-    <p class="subtitle">Drag the timeline horizontally to explore generations of consoles and iconic game releases.</p>
 
-    <div id="timeline-container">
-        <svg id="timeline"></svg>
+    <div class="layout">
+        <aside class="side-nav">
+            <h2 class="side-title">Timeline</h2>
+            <ul class="gen-list" id="gen-list">
+                <li class="gen-item" data-gen="1st">1st & 2nd Generation</li>
+                <li class="gen-item" data-gen="2nd">Atari Shock</li>
+                <li class="gen-item" data-gen="3rd">3rd Generation</li>
+                <li class="gen-item" data-gen="4th">4th Generation</li>
+                <li class="gen-item" data-gen="5th">5th Generation</li>
+                <li class="gen-item active" data-gen="timeline">Timeline</li>
+            </ul>
+        </aside>
+
+        <div class="main-column">
+            <div id="timeline-wrapper" class="content-panel" style="border-radius: 10px;">
+                <div id="timeline-container" >
+                    <svg id="timeline"></svg>
+                </div>
+                <img id="detail-image" class="detail-image" alt="Event visual" />
+                <section id="detail-panel">
+                    <div class="detail-body", style="margin-bottom: 30px;">
+                            <p class="detail-meta" id="detail-meta">Select a card to see more.</p>
+                            <h2 class="detail-title" id="detail-title">Pick an event</h2>
+                            <p class="detail-description" id="detail-description">
+                                Click any card on the timeline to view a longer description and a related video.
+                            </p>
+                        </div>
+                    <div class="detail-inner">
+                        <div class="detail-media">
+                        <div class="video-wrapper">
+                            <iframe
+                                id="detail-video"
+                                class="video-frame"
+                                src="https://www.youtube.com/embed/XXXX"
+                                allowfullscreen
+                            ></iframe>
+                        </div>
+                            
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+
+            <section id="gen-content" class="content-panel hidden">
+                <div class="gen-content-inner">
+                    <div id="gen-default" class="gen-section">
+                        <h2>Generation Overview</h2>
+                        <p>Choose a generation on the left to see its description here.</p>
+                    </div>
+
+                    <div id="gen-1st" class="gen-section hidden">
+                        <h1>1st & 2nd Generation (1970s)</h1>
+                        <div id="gen-details" class="gen-box">
+                            <h2 style="margin-bottom: 30px; margin-top: 20px; margin-left: 5%;">Magnavox Odyssey</h2>
+                            <div style="display: flex; flex-direction: row; gap: 100px; justify-content: center;">
+
+                                <div style="width: 400px; height: auto;">
+                                    <p>The Magnavox Odyssey was the first commercial home video game console and relied entirely on analog circuitry rather than a programmable processor. <br>
+                                    <br>
+                                    <p>Its games were implemented through hardware configurations and physical screen overlays, with no built-in scoring or sound. </p>
+                                </div>
+
+                                <div>
+                                    <img style="width: 400px; height: 225px; object-fit: cover;" class="round-image" src="https://ichef.bbci.co.uk/images/ic/480xn/p0gzwdq5.jpg" alt="Magnavox Odyssey">
+                                </div>
+                            </div>
+                            <div style="display: flex; flex-direction: row; gap: 100px; justify-content: center;">
+                                <div>
+                                    <img style="width: 400px; height: 225px; object-fit: cover;" class="round-image" src="./data/gen1/odessey2.jpg" alt="Magnavox Odyssey">
+                                </div>
+                                <div>
+                                    <img style="width: 400px; height: 225px; object-fit: cover;" class="round-image" src="./data/gen1/odessey3.jpg" alt="Magnavox Odyssey">
+                                </div>
+                            </div>
+                        </div>
+                        <div id="gen-details" class="gen-box">
+                            <h2 style="margin-bottom: 30px; margin-top: 20px; margin-left: 5%;">Atari</h2>
+                            <div style="display: flex; flex-direction: row; gap: 100px; justify-content: center;">
+                                <div style="width: 400px; height: 225px; object-fit: cover;">
+                                <div style="width: 400px; height: 225px; object-fit: cover;">
+                                    First-generation arcade games, such as Pong, introduced video games to the public with simple rules and accessible gameplay.<br>
+                                    <br>
+                                    The second-generation console Atari 2600 brought gaming into homes, popularizing cartridge-based systems and expanding the game market.<br>
+                                </div>
+
+                                </div>
+                                <div>
+                                    <img style="width: 400px; height: 225px; object-fit: cover;" class="round-image" src="https://cdn.mos.cms.futurecdn.net/xQmFxCSLFhkDbYG4m6E5x3.png" alt="Magnavox Odyssey">
+                                </div>
+
+                            </div>
+                            
+                            <div style="display: flex; flex-direction: row; gap: 100px; justify-content: center;">
+                                <div>
+                                    <img style="width: 400px; height: 225px; object-fit: cover;" class="round-image" src="https://upload.wikimedia.org/wikipedia/commons/0/02/Atari-2600-Wood-4Sw-Set.png" alt="Magnavox Odyssey">
+                                </div>
+                                <div>
+                                    <img style="width: 400px; height: 225px; object-fit: cover;" class="round-image" src="https://i.pcmag.com/imagery/lineups/062G7sMycugniADrTjlf3oa-1..v1576805956.jpg" alt="Magnavox Odyssey">
+                                </div>
+                            </div>
+                        </div>
+                        <div id="gen-details" class="gen-box">
+                            <h2 style="margin-bottom: 30px; margin-top: 20px; margin-left: 5%;">Magnavox Odyssey vs Atari</h2>
+                           <div id="gen1-table" class="table-box"></div>
+                        </div>
+                    </div>
+                    <div id="gen-2nd" class="gen-section hidden">
+                        <h1>Atari Shock (1983-1985)</h1>
+                        <div id="gen-details" class="gen-box">
+                            <h2 style="margin-bottom: 30px; margin-top: 20px; margin-left: 5%;">Atari Shock</h2>
+                            <div style="display: flex; flex-direction: row; gap: 100px; justify-content: center;">
+                                <div style="width: 400px; height: auto;">
+                                    <p>
+                                        The Atari Shock, also known as the video game crash of 1983, was caused by market saturation, poor-quality games, and a lack of quality control in the console and software industry.<br> 
+                                        <br>
+                                        Consumer trust declined rapidly as too many low-quality titles (ex. ET, Pacman) flooded the market, leading to sharp drops in sales and company bankruptcies. <br>
+                                        <br>
+                                        This collapse prompted the industry to adopt stricter licensing and quality control systems in later generations.
+                                    </p>
+                                </div>
+                                <div>
+                                    <img style="width: 400px; height: 225px; object-fit: cover;" class="round-image" src="https://nerdsonearth.com/wp-content/uploads/2018/09/dsc_1810-980x651.jpg" alt="Atari Shock">
+                                </div>
+
+                            </div>
+                            <div style="display: flex; flex-direction: row; gap: 100px; justify-content: center; margin-top: 30px;">
+                                <div>
+                                    <img style="width: 400px; height: 225px; object-fit: cover;" class="round-image" src="https://indiegamerchick.com/wp-content/uploads/2023/01/e.t.-the-extra-terrestrial-usa-230124-043323.png" alt="Atari Shock">
+                                </div>
+                                <div>
+                                    <img style="width: 400px; height: 225px; object-fit: cover;" class="round-image" src="https://blog.somnolescent.net/wp-content/uploads/2022/02/pacman_attract-1024x768.png" alt="Atari Shock">
+                                </div>
+                            </div>
+                            <div id="gen2-chart" class="chart-box" style="margin-top: 40px"></div>
+                            <p style="text-align: center;"> Game Industry Revenue from 1978 to 1990</p>
+
+                        </div>
+                    </div>
+
+                    <div id="gen-3rd" class="gen-section hidden">
+                        <h1>3rd Generation(mid 1980s, 8-bit era)</h1>
+                        <div id="gen-details" class="gen-box">
+                            <h2 style="margin-bottom: 30px; margin-top: 20px; margin-left: 5%;">Family Controller(Femi-com)</h2>
+                            <div style="display: flex; flex-direction: row; gap: 100px; justify-content: center;">
+                                <div style="width: 400px; height: auto;">
+                                    <p>Released in 1983, the Family Controller helped revive the video game industry after the market crash. <br>
+                                        <br>
+                                    Its cartridge-based system and strict quality control set standards for home consoles. <br>
+                                        <br>
+                                    Family Controller introduced iconic franchises such as Super Mario Bros. and The Legend of Zelda.</p>
+                                </div>
+                                <div>
+                                    <img style="width: 400px; height: 225px; object-fit: cover;" class="round-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Nintendo-Famicom-Console-FL.jpg/1200px-Nintendo-Famicom-Console-FL.jpg" alt="Atari Shock">
+                                </div>
+                            </div>
+                            <div style="display: flex; flex-direction: row; gap: 100px; justify-content: center; margin-top: 30px;">
+                                <div>
+                                    <img style="width: 400px; height: 225px; object-fit: cover;" class="round-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRG-vdVjT4PFgTUPnrKxZ19--u-bdkW7gxicQ&s" alt="Atari Shock">
+                                </div>
+                                <div>
+                                    <img style="width: 400px; height: 225px; object-fit: cover;" class="round-image" src="https://hips.hearstapps.com/digitalspyuk.cdnds.net/12/48/gaming-super-mario-bros-3.jpg?resize=980:*" alt="Atari Shock">
+                                </div>
+                            </div>
+                            <div style="display: flex; flex-direction: row; gap: 60px; justify-content: center; align-items: center;">
+                                <div style="width: 500px; height: auto; padding: 12px;" >
+                                    <p style="margin: 0; align-self: center;">
+                                        After the Atari Shock in 1983, the console gaming industry experienced a severe decline, with many companies exiting the market due to oversupply and poor-quality games. <br>
+                                        <br>
+                                        The industry remained unstable for several years until Nintendo released the Family Computer (Famicom), which reintroduced quality control and reliable game publishing practices. <br>
+                                        <br>
+                                        With the success of the Famicom(from 1985), consumer trust was gradually restored, leading to the recovery and long-term growth of the home console market.
+                                    </p>
+                                </div>
+                                <div>
+                                    <div id="gen3-chart" class="chart-box"></div>
+                                    <p style="text-align: center;">Arcade vs Console,PC (US Market, 1985~1990)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="gen-4th" class="gen-section hidden">
+                        <h1>4th Generation (late 1980s~, 16-bit era)</h1>
+                        <div id="gen-details" class="gen-box">
+                            <h2 style="margin-bottom: 30px; margin-top: 20px; margin-left: 5%;">SNES(aka Super Femi-com)</h2>
+                            <div style="display: flex; flex-direction: row; gap: 100px; justify-content: center;">
+
+                                <div style="width: 400px; height: 225px; object-fit: cover;">
+                                    SNES(Super Nintendo Entertainment System) Released in the early 1990s, the Super Famicom became one of the most iconic consoles of the 4th generation. <br>
+                                    <br>
+                                    With advanced colors and high-quality sound than Family Controller, a wide range of memorable games such as Super Mario World and early Final Fantasy series.<br></bbr>
+                                    <br>
+                                    The console helped define home gaming as a family-friendly and long-lasting entertainment medium.
+                                </div>
+
+                                <div>
+                                    <img style="width: 400px; height: 225px; object-fit: cover;" class="round-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Nintendo-Super-Famicom-Set-FL.jpg/2560px-Nintendo-Super-Famicom-Set-FL.jpg" alt="Magnavox Odyssey">
+                                </div>
+                            </div>
+                            <div style="display: flex; flex-direction: row; gap: 100px; justify-content: center; margin-top: 30px;">
+                                <div>
+                                    <img style="width: 400px; height: 225px; object-fit: cover;" class="round-image" src="https://www.nintendoworldreport.com/media/41242/4/2.jpg" alt="Magnavox Odyssey">
+                                </div>
+                                <div>
+                                    <img style="width: 400px; height: 225px; object-fit: cover;" class="round-image" src="https://i0.wp.com/thekingofgrabs.com/wp-content/uploads/2019/09/final-fantasy-6-snes-wide.png?fit=1200%2C785&ssl=1" alt="Magnavox Odyssey">
+                                </div>
+                            </div>
+                        </div>
+                        <div id="gen-details" class="gen-box">
+                            <h2 style="margin-bottom: 30px; margin-top: 20px; margin-left: 5%;">Sega Genesis</h2>
+                            <div style="display: flex; flex-direction: row; gap: 100px; justify-content: center;">
+                                <div style="width: 400px; height: 225px; object-fit: cover;">
+                                <div style="width: 400px; height: 225px; object-fit: cover;">
+                                    Sega Genesis released in 1988 which was a major 4th generation console that focused on fast gameplay and arcade-style action. <br>
+                                    <br>
+                                    Powered by a higher-clocked CPU, it delivered arcade-style gameplay and smoother action in many titles, including Sonic the Hedgehog.<br>
+                                    <br>
+                                    Its aggressive marketing and emphasis on speed made it a key player in the famous “console wars” of the era.
+                                </div>
+
+                                </div>
+                                <div>
+                                    <img style="width: 400px; height: 225px; object-fit: cover;" class="round-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Sega-Genesis-Mk2-6button.jpg/2560px-Sega-Genesis-Mk2-6button.jpg" alt="Magnavox Odyssey">
+                                </div>
+
+                            </div>
+                            
+                            <div style="display: flex; flex-direction: row; gap: 100px; justify-content: center; margin-top: 30px;">
+                                <div>
+                                    <img style="width: 400px; height: 225px; object-fit: cover;" class="round-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGZxXGE_f0bpvDcMNryyTvAoX_rptO13lqCg&s" alt="Magnavox Odyssey">
+                                </div>
+                                <div>
+                                    <img style="width: 400px; height: 225px; object-fit: cover;" class="round-image" src="https://i0.wp.com/www.arcadeattack.co.uk/wp-content/uploads/2016/06/Sonic-2-Mega-Drive-1-300x225.png?resize=352%2C264" alt="Magnavox Odyssey">
+                                </div>
+                            </div>
+                        </div>
+                        <div id="gen-details" class="gen-box">
+                            <h2 style="margin-bottom: 30px; margin-top: 20px; margin-left: 5%;">SNES vs Sega Genesis : First Console War</h2>
+
+                            <div style="display: flex; flex-direction: row; gap: 60px; justify-content: center; align-items: center;">
+                                <div style="width: 500px; height: auto; padding: 12px;" >
+                                    <p style="margin: 0; align-self: center;">
+                                        Technically, the Sega Genesis featured a significantly faster CPU, making it well-suited for fast-paced and arcade-style games, while the Super Famicom excelled 
+                                        in graphics and sound through advanced color support and dedicated audio hardware. <br>
+                                        <br>
+                                        Beyond raw specifications, the Super Famicom consistently held an advantage in game quality, supported by a stronger lineup of 
+                                        first-party titles and more polished game design.<br>
+                                        <br>
+                                        As a result, Sega always positioned the Genesis as  challenger, highlighting speed and attitude in contrast to Nintendo’s broader technical and content-driven dominance during the 4th generation console era.
+                                </div>
+                                <div>
+                                    <div id="gen4-chart" class="chart-box"></div>
+                                    <p style="text-align: center;">SNES vs Sega Genesis</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div id="gen-5th" class="gen-section hidden">
+                        <h1>5th Generation (mid 1990s~, 3D era)</h1>
+                        <div id="gen-details" class="gen-box">
+                            <h2 style="margin-bottom: 30px; margin-top: 20px; margin-left: 5%;">PlayStation</h2>
+                            <div style="display: flex; flex-direction: row; gap: 100px; justify-content: center;">
+
+                                <div style="width: 400px; height: 225px; object-fit: cover;">
+                                    PlayStation was released in 1994 and marked Sony’s entry into the video game console market. <br>
+                                    <br>
+                                    By adopting CD-ROM technology, it enabled larger, more complex 3D games and attracted many third-party developers.<br>
+                                    <br>
+                                    Its strong software support and focus on 3D gaming helped redefine the industry and establish Sony as a major player.
+                                </div>
+
+                                <div>
+                                    <img style="width: 400px; height: auto;" class="round-image" src="https://upload.wikimedia.org/wikipedia/en/9/9e/PlayStation-SCPH-1000-with-Controller.png" alt="PlayStation">
+                                </div>
+                            </div>
+                            <div style="display: flex; flex-direction: row; gap: 100px; justify-content: center; margin-top: 30px;">
+                                <div>
+                                    <img style="width: 400px; height: auto;" class="round-image" src="https://upload.wikimedia.org/wikipedia/en/c/c2/Final_Fantasy_VII_Box_Art.jpg" alt="FF7">
+                                </div>
+                                <div>
+                                    <img style="width: 400px; height: auto;" class="round-image" src="https://www.gran-turismo.com/images/c/i1FPPtrJV0TihhH.jpg" alt="Gran Turismo">
+                                </div>
+                            </div>
+                        </div>
+                        <div id="gen-details" class="gen-box">
+                            <h2 style="margin-bottom: 30px; margin-top: 20px; margin-left: 5%;">Nintendo64</h2>
+                            <div style="display: flex; flex-direction: row; gap: 100px; justify-content: center;">
+                                <div style="width: 400px; height: auto;">
+                                    <div style="width: 400px; height: auto;">
+                                        Nintendo 64 was released in 1996, following the success of the PlayStation and further advancing 3D console gaming.<br>
+                                        <br>
+                                        It introduced groundbreaking 3D gameplay experiences with titles like Super Mario 64, setting new standards for camera control and level design.<br>
+                                        <br>
+                                        Although it relied on cartridges instead of CDs, the Nintendo 64 demonstrated Nintendo’s unique approach to 3D gaming and innovation.
+                                    </div>
+
+                                </div>
+                                <div>
+                                    <img style="width: 400px; height: 225px; object-fit: cover;" class="round-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/N64-Console-Set.png/2560px-N64-Console-Set.png" alt="N64">
+                                </div>
+
+                            </div>
+                            
+                            <div style="display: flex; flex-direction: row; gap: 100px; justify-content: center; margin-top: 30px;">
+                                <div>
+                                    <img style="width: 400px; height: 225px; object-fit: cover;" class="round-image" src="https://www.cubed3.com/wp-content/uploads/2025/03/super-mario-64-nintendo-64-art-banner.jpg" alt="Mario64">
+                                </div>
+                                <div>
+                                    <img style="width: 400px; height: 225px; object-fit: cover;" class="round-image" src="https://gamehoard.com/cdn/shop/articles/mario_kart_64_review_1024x.jpg?v=1733846751" alt="Mario Kart 64">
+                                </div>
+                            </div>
+                        </div>
+                        <div id="gen-details" class="gen-box">
+                            <h2 style="margin-bottom: 30px; margin-top: 20px; margin-left: 5%;">Nintendo64 vs PlayStation : Second Console War</h2>
+
+                            <div style="display: flex; flex-direction: row; gap: 0px; justify-content: center; align-items: center;">
+                                <div style="width: 400px; height: auto;" >
+                                    <p style="margin: 0; align-self: center;">
+                                        By examining both best-selling game titles and overall console sales, the outcome of the second console war becomes clear.<br>
+                                        <br>
+                                        While the Nintendo 64 produced a smaller number of highly successful games, the PlayStation benefited from a broader and more diverse library, resulting in significantly higher total console sales worldwide.<br>
+                                        <br>
+                                        Together, these factors establish the PlayStation as the clear winner of the second console war.
+                                </div>
+                                <div>
+                                    <div id="gen5-chart-1" class="chart-box"></div>
+                                    <p style="text-align: center; font-size: 13px">Game Title Sales Volume</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="gen-details" class="gen-box">
+                            <h2 style="margin-bottom: 30px; margin-top: 20px; margin-left: 5%;">2D world to 3D world</h2>
+
+                            <div style="display: flex; flex-direction: row; gap: 0px; justify-content: center; align-items: center;">
+                                <div>
+                                    <div id="gen5-chart-2" class="chart-box"></div>
+                                    <div id="2dto3dDesc" style="text-align: center; margin-top: 10px"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div id="gen-6th" class="gen-section hidden">
+                        <h2>6th Generation</h2>
+                        <p>Placeholder for 6th generation content.</p>
+                    </div>
+                    <div id="gen-7th" class="gen-section hidden">
+                        <h2>7th Generation</h2>
+                        <p>Placeholder for 7th generation content.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
     </div>
 
-    <section id="detail-panel">
-        <div class="detail-inner">
-            <div class="detail-media">
-                <iframe
-                    id="detail-video"
-                    class="video-frame"
-                    src=""
-                    title="Video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen
-                ></iframe>
-                <img id="detail-image" class="detail-image" alt="Event visual" />
-            </div>
-            <div class="detail-body">
-                <p class="detail-meta" id="detail-meta">Select a card to see more.</p>
-                <h2 class="detail-title" id="detail-title">Pick an event</h2>
-                <p class="detail-description" id="detail-description">
-                    Click any card on the timeline to view a longer description and a related video.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <script src="js/main.js"></script>
+    <script type="module" src="js/main.js"></script>
 </body>
 </html>

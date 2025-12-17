@@ -1,3 +1,6 @@
+/* =======================
+   Global
+======================= */
 body {
     margin: 0;
     padding: 0;
@@ -5,9 +8,17 @@ body {
     background: #f1f1f1;
 }
 
+.hidden {
+    display: none !important;
+}
+
+/* =======================
+   Titles
+======================= */
 .title {
     text-align: center;
     margin-top: 20px;
+    margin-bottom: 40px;
     font-size: 32px;
 }
 
@@ -18,33 +29,278 @@ body {
     color: #555;
 }
 
+/* =======================
+   Layout
+======================= */
+.layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 18px;
+    padding: 0 18px 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.main-column {
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    justify-self: center;
+}
+
+/* =======================
+   Side Navigation
+======================= */
+.side-nav {
+    background: #ffffff;
+    border: 1px solid #e3e3e3;
+    border-radius: 12px;
+    padding: 16px 14px 18px;
+    box-shadow: 0 12px 24px rgba(0,0,0,0.05);
+    height: fit-content;
+    position: sticky;
+    top: 12px;
+}
+
+.side-title {
+    margin: 0 0 8px 0;
+    font-size: 18px;
+    color: #222;
+}
+
+.gen-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.gen-item {
+    padding: 10px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+    color: #333;
+}
+
+.gen-item:hover {
+    background: #f2f6ff;
+    border-color: #d8e3ff;
+}
+
+.gen-item.active {
+    background: #265ef2;
+    color: #fff;
+    border-color: #265ef2;
+    box-shadow: 0 8px 18px rgba(38, 94, 242, 0.2);
+}
+
+.gen-info {
+    margin-top: 14px;
+    padding: 12px;
+    border: 1px solid #e8e8e8;
+    border-radius: 10px;
+    background: #fafafa;
+}
+
+.gen-info h3 {
+    margin: 0 0 6px 0;
+    font-size: 16px;
+}
+
+.gen-info p {
+    margin: 0;
+    color: #555;
+    line-height: 1.45;
+    font-size: 14px;
+}
+
+/* =======================
+   Content Panel
+======================= */
+.gen-content-inner {
+    background: #fff;
+    padding: 22px 20px 28px;
+    border: 1px solid #e3e3e3;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+}
+
+.gen-content-inner h2 {
+    margin: 0 0 10px 0;
+}
+
+.gen-content-inner p {
+    margin: 0;
+    line-height: 1.55;
+    font-size: 15px;
+}
+
+.gen-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.gen-box {
+    margin-top: 16px;
+    padding: 12px;
+    border: 1px solid #e3e3e3;
+    border-radius: 10px;
+    background: #fff;
+}
+
+
+/* =======================
+   Chart
+======================= */
+#gen-chart {
+    min-height: 240px;
+}
+
+/* =======================
+   Comparison Table
+======================= */
+.gen-table {
+    width: min(100%, 760px);
+    margin: 12px auto;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.gen-table th,
+.gen-table td {
+    border: 1px solid #e5e5e5;
+    padding: 8px 10px;
+    text-align: left;
+}
+
+.gen-table th {
+    background: #f6f7fb;
+    font-weight: 600;
+    color: #333;
+}
+
+.gen-table tr.highlight td {
+    background: #f0f4ff;
+}
+
+/* =======================
+   Explanation Box
+======================= */
+.gen-explain {
+    width: 900px;
+    margin-top: 12px;
+    padding: 12px;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    background: #f8fafc;
+    color: #334155;
+    font-size: 13px;
+    line-height: 1.5;
+    margin: 12px auto;
+}
+
+.gen-explain img {
+    display: block;
+    margin-top: 8px;
+    border-radius: 8px;
+    max-width: 100%;
+}
+
+.explain-text {
+    display: inline-block;
+    text-align: left;
+    margin: 0 auto;
+}
+
+.explain-images {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+    }
+
+.explain-images img {
+    flex: 1 1 48%;
+    max-width: 100%;
+    height: auto;
+    max-height: 220px;
+    object-fit: contain;
+    margin-top: 0;
+}
+
+/* =======================
+   Image Grid
+======================= */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.image-grid img {
+    display: block;
+    width: 100%;
+    max-width: none;
+    height: auto;
+    border-radius: 8px;
+    object-fit: contain;
+    border: 1px solid #e6e6e6;
+    background: #f9f9f9;
+}
+
+.round-image{
+    border: 1px solid #e6e6e6;
+    border-radius: 8px;
+}
+
+/* =======================
+   Timeline
+======================= */
+#timeline-wrapper {
+  background: #fff;
+  border: 1px solid #e3e3e3;
+  border-radius: 10px;
+  overflow: hidden; /* 자식 배경을 둥근 모서리에 맞춰 자름 */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+}
+
 #timeline-container {
     width: 100%;
-    height: 700px;
+    height: 400px;
     overflow: hidden;
     border-top: 2px solid #ddd;
 }
 
-#timeline {
-    width: 100vw;   
-    height: 700px;
-    display: block;
-    background: white;
-}
 
+/* =======================
+   Detail Panel
+======================= */
 #detail-panel {
     padding: 24px 20px 32px;
     background: #ffffff;
     border-top: 1px solid #e3e3e3;
+
 }
 
 .detail-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
+    width: 100%;
     grid-template-columns: 1.25fr 1fr;
     gap: 24px;
     align-items: start;
+    display: "flex";
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .detail-media {
@@ -55,6 +311,27 @@ body {
     min-height: 240px;
     box-shadow: 0 12px 24px rgba(0,0,0,0.18);
 }
+
+.video-wrapper {
+    width: 700px;
+    aspect-ratio: 16 / 9;
+    margin: 20px auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: black;
+    border-radius: 12px;
+    overflow: hidden; /* 중요 */
+}
+
+.video-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
 
 .video-frame,
 .detail-image {
@@ -93,25 +370,100 @@ body {
     font-size: 15px;
 }
 
+/* =======================
+   Cards
+======================= */
+.card {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    transform-box: fill-box;
+    transform-origin: center center;
+}
+
+.card rect {
+    filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.2));
+}
+
+/* =======================
+   Responsive
+======================= */
 @media (max-width: 900px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+
+    .side-nav {
+        position: relative;
+        top: 0;
+    }
+
     .detail-inner {
         grid-template-columns: 1fr;
     }
+
     .detail-media {
         min-height: 220px;
     }
 }
 
-.card {
-    cursor: pointer;
-    transition: transform 0.2s ease;
-    transform-box: fill-box; /* use element bbox as transform reference */
-    transform-origin: center center;
-}
-.card:hover {
-    /* hover is handled in JS to avoid SVG/CSS transform inconsistencies */
+.toggle-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  user-select: none;
 }
 
-.card rect {
-    filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.2));
+.toggle-label {
+  font-weight: 600;
+  color: #374151;
+}
+
+/* switch base */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 52px;
+  height: 28px;
+}
+
+/* hide checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: #e5e7eb;
+  transition: 0.3s;
+  border-radius: 999px;
+}
+
+/* knob */
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 50%;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+}
+
+/* checked = Media */
+input:checked + .slider {
+  background-color: #111827;
+}
+
+input:checked + .slider::before {
+  transform: translateX(24px);
 }

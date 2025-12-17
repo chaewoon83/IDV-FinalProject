@@ -7,7 +7,8 @@
     "type": "console",
     "generation": "1st",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Magnavox-Odyssey-Console-Set.jpg/1200px-Magnavox-Odyssey-Console-Set.jpg",
-    "description": "The world's first home video game console. Sold about 330,000 units."
+    "description": "The world's first home video game console. Sold about 330,000 units.",
+    "video": "https://www.youtube.com/watch?v=0ptNocxlUg8"
   },
   {
     "id": 2,
@@ -15,9 +16,11 @@
     "date": "1972-11-01",
     "title": "Pong",
     "type": "game",
+    "console" : "Arcade",
     "generation": "1st",
     "image": "https://media.wired.com/photos/59fccff22d3f5732c7d5aa15/3:2/w_2560%2Cc_limit/Pong-TA-B1C1YX.jpg",
-    "description": "Atari releases Pong, one of the first arcade games to gain major commercial success."
+    "description": "Atari releases Pong, one of the first arcade games to gain major commercial success.",
+    "video": "https://www.youtube.com/watch?v=uCqIkgFKHr4"
   },
   {
     "id": 3,
@@ -25,9 +28,11 @@
     "date": "1976-04-01",
     "title": "Breakout",
     "type": "game",
+    "console" : "Atari",
     "generation": "1st",
-    "image": "images/breakout.png",
-    "description": "Atari releases Breakout, designed with early involvement from Steve Jobs and Steve Wozniak."
+    "image": "https://upload.wikimedia.org/wikipedia/en/7/7a/BreakOut_arcadeflyer.png",
+    "description": "Atari releases Breakout, designed with early involvement from Steve Jobs and Steve Wozniak.",
+    "video": "https://www.youtube.com/watch?v=N2rF67d7VI0"
   },
   {
     "id": 4,
@@ -36,8 +41,9 @@
     "title": "Atari 2600",
     "type": "console",
     "generation": "2nd",
-    "image": "images/atari2600.png",
-    "description": "One of the most influential game consoles, popularizing ROM cartridges."
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Atari-2600-Wood-4Sw-Set.png/2560px-Atari-2600-Wood-4Sw-Set.png",
+    "description": "One of the most influential game consoles, popularizing ROM cartridges.",
+    "video": "https://www.youtube.com/watch?v=J1ZLov8Xne0"
   },
   {
     "id": 5,
@@ -45,59 +51,47 @@
     "date": "1978-06-01",
     "title": "Space Invaders",
     "type": "game",
+    "console" : "Arcade",
     "generation": "2nd",
-    "image": "images/space-invaders.png",
-    "description": "A landmark arcade shooter that sparked a global gaming craze."
+    "image": "https://i.pinimg.com/474x/b4/5c/fb/b45cfb612d9a37aa89e6bf8a2314a7c8.jpg",
+    "description": "A landmark arcade shooter that sparked a global gaming craze.",
+    "video": "https://www.youtube.com/watch?v=kR2fjwr-TzA"
   },
   {
     "id": 6,
-    "year": 1980,
-    "date": "1980-05-22",
-    "title": "Pac-Man",
+    "year": 1981,
+    "date": "1981-05-22",
+    "title": "Kaboom",
     "type": "game",
+    "console" : "Atari 2600",
     "generation": "2nd",
-    "image": "images/pacman.png",
-    "description": "Pac-Man becomes a cultural icon and one of the most successful arcade games ever."
+    "image": "https://upload.wikimedia.org/wikipedia/en/4/47/Kaboomcover.jpg",
+    "description": "Kaboom! is a 1981 action video game developed and published by Activision for the Atari 2600. The game involves a Mad Bomber dropping bombs at increasing speeds as the player controls a set of water buckets to catch them.",
+    "video": "https://www.youtube.com/watch?v=_v9D_vDBE40"
   },
   {
     "id": 7,
-    "year": 1981,
-    "date": "1981-07-09",
-    "title": "Donkey Kong",
-    "type": "game",
-    "generation": "2nd",
-    "image": "images/donkey-kong.png",
-    "description": "Introduced Mario (then Jumpman) and established Nintendo as a major game developer."
-  },
-  {
-    "id": 8,
     "year": 1982,
     "date": "1982-02-01",
-    "title": "Tron Arcade",
+    "title": "Adventure",
     "type": "game",
+    "console" : "Atari 2600",
     "generation": "2nd",
-    "image": "images/tron.png",
-    "description": "An arcade game inspired by the Tron movie; represents early movie–game crossovers."
+    "image": "https://upload.wikimedia.org/wikipedia/en/6/60/Adventure_Box_Front.jpg",
+    "description": "Adventure is a 1980 action-adventure game developed by Warren Robinett and published by Atari, Inc. for the Atari 2600. The player controls a square avatar whose quest is to explore an open-ended environment to find a magical chalice and return it to the Golden Castle.",
+    "video": "https://www.youtube.com/watch?v=I6-zN_eaRd8"
   },
+
   {
     "id": 9,
     "year": 1983,
     "date": "1983-07-15",
-    "title": "Famicom / NES",
+    "title": "NES (Femi-com)",
     "type": "console",
     "generation": "3rd",
-    "image": "images/nes.png",
-    "description": "Nintendo releases the Famicom in Japan. Later becomes the NES worldwide, reviving the game industry."
-  },
-  {
-    "id": 10,
-    "year": 1984,
-    "date": "1984-06-06",
-    "title": "Tetris",
-    "type": "game",
-    "generation": "3rd",
-    "image": "images/tetris.png",
-    "description": "One of the most influential puzzle games ever, designed by Alexey Pajitnov."
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Nintendo-Famicom-Console-Set-FL.png/2560px-Nintendo-Famicom-Console-Set-FL.png",
+    "description": "Nintendo releases the Famicom in Japan. Later becomes the NES worldwide, reviving the game industry.",
+    "video": "https://www.youtube.com/watch?v=L0q1A08LDMY&list=PLtsZRFeG-MhKYFHr2MDnMIIXznW7XYeET"
   },
   {
     "id": 11,
@@ -106,8 +100,10 @@
     "title": "Super Mario Bros.",
     "type": "game",
     "generation": "3rd",
-    "image": "images/super-mario.png",
-    "description": "Revolutionizes platformers and becomes one of the best-selling games of all time."
+    "console": "NES",
+    "image": "https://upload.wikimedia.org/wikipedia/en/0/03/Super_Mario_Bros._box.png",
+    "description": "Revolutionizes platformers and becomes one of the best-selling games of all time.",
+    "video": "https://www.youtube.com/watch?v=c_b9Yn34pdI"
   },
   {
     "id": 12,
@@ -116,8 +112,9 @@
     "title": "The Legend of Zelda",
     "type": "game",
     "generation": "3rd",
-    "image": "images/zelda.png",
-    "description": "Introduces open-world exploration and becomes one of Nintendo's flagship franchises."
+    "image": "https://upload.wikimedia.org/wikipedia/en/4/41/Legend_of_zelda_cover_%28with_cartridge%29_gold.png",
+    "description": "Introduces open-world exploration and becomes one of Nintendo's flagship franchises.",
+    "video": "https://youtu.be/6g2vk8Gudqs?si=Y3YBeGTZWabyi5g0"
   },
   {
     "id": 13,
@@ -125,9 +122,11 @@
     "date": "1987-07-07",
     "title": "Street Fighter",
     "type": "game",
+    "console": "Arcade",
     "generation": "3rd",
-    "image": "images/street-fighter.png",
-    "description": "Capcom releases the first Street Fighter, paving the way for future fighting games."
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSisAxh6-dYpqYm3lCiyUjnnGs3ozK7bpycHQ&s",
+    "description": "Capcom releases the first Street Fighter, paving the way for future fighting games.",
+    "video": "https://www.youtube.com/watch?v=6b3xNeoMYBU"
   },
   {
     "id": 14,
@@ -136,8 +135,9 @@
     "title": "Sega Mega Drive / Genesis",
     "type": "console",
     "generation": "4th",
-    "image": "images/genesis.png",
-    "description": "Sega's most successful console, known for fast arcade-style gameplay."
+    "image": "https://m.media-amazon.com/images/I/711cU1LLyyL._AC_UF350,350_QL80_.jpg",
+    "description": "Sega's most successful console, known for fast arcade-style gameplay.",
+    "video": "https://www.youtube.com/watch?v=bun8tA_ksZw"
   },
   {
     "id": 15,
@@ -146,8 +146,9 @@
     "title": "Game Boy",
     "type": "console",
     "generation": "4th",
-    "image": "images/gameboy.png",
-    "description": "Nintendo releases the Game Boy, defining handheld gaming for decades."
+    "image": "https://cdn.worldvectorlogo.com/logos/game-boy.svg",
+    "description": "Nintendo releases the Game Boy, defining handheld gaming for decades.",
+    "video": "https://www.youtube.com/watch?v=E-ej_8XBwmI"
   },
   {
     "id": 16,
@@ -156,8 +157,9 @@
     "title": "Super Famicom / SNES",
     "type": "console",
     "generation": "4th",
-    "image": "images/snes.png",
-    "description": "Nintendo releases the SNES with enhanced graphics and iconic first-party titles."
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/31/SNES-Mod1-Console-Set.jpg",
+    "description": "Nintendo releases the SNES with enhanced graphics and iconic first-party titles.",
+    "video": "https://www.youtube.com/watch?v=9h5bX2bV6Xo"
   },
   {
     "id": 17,
@@ -166,18 +168,9 @@
     "title": "Sonic the Hedgehog",
     "type": "game",
     "generation": "4th",
-    "image": "images/sonic.png",
-    "description": "Sega introduces Sonic, becoming a strong competitor to Nintendo's Mario."
-  },
-  {
-    "id": 18,
-    "year": 1992,
-    "date": "1992-02-05",
-    "title": "Mortal Kombat",
-    "type": "game",
-    "generation": "4th",
-    "image": "images/mk.png",
-    "description": "Known for digitized graphics and violent gameplay; led to the creation of ESRB ratings."
+    "image": "https://assets-prd.ignimgs.com/2022/02/07/sonic1-sq-1644268190097.jpg?crop=1%3A1%2Csmart&format=jpg&auto=webp&quality=80",
+    "description": "Sega introduces Sonic, becoming a strong competitor to Nintendo's Mario.",
+    "video": "https://www.youtube.com/watch?v=gjDanVVS5EI"
   },
   {
     "id": 19,
@@ -185,9 +178,11 @@
     "date": "1993-12-03",
     "title": "DOOM",
     "type": "game",
+    "console": "PC",
     "generation": "5th",
-    "image": "images/doom.png",
-    "description": "Popularizes the FPS genre and multiplayer deathmatch."
+    "image": "https://image.api.playstation.com/vulcan/ap/rnd/202009/2505/utFJuF2xAXJoKZ6tjlSHHrXL.png",
+    "description": "Popularizes the FPS genre and multiplayer deathmatch.",
+    "video": "https://www.youtube.com/watch?v=OiwsGy70OII"
   },
   {
     "id": 20,
@@ -196,8 +191,9 @@
     "title": "PlayStation",
     "type": "console",
     "generation": "5th",
-    "image": "images/ps1.png",
-    "description": "Sony enters the market and dominates 3D gaming with CD-ROM technology."
+    "image": "https://www.powerupgaming.ca/cdn/shop/products/ps1fat__83933.1614692274.jpg?v=1731443183",
+    "description": "Sony enters the market and dominates 3D gaming with CD-ROM technology.",
+    "video": "https://www.youtube.com/watch?v=HbwvnaNJVZ4"
   },
   {
     "id": 21,
@@ -206,8 +202,9 @@
     "title": "Nintendo 64",
     "type": "console",
     "generation": "5th",
-    "image": "images/n64.png",
-    "description": "Known for Super Mario 64 and Ocarina of Time, setting new 3D gameplay standards."
+    "image": "https://i5.walmartimages.com/seo/Nintendo-64-N64-Console-System-Used_52c4108c-5763-4e13-8a7d-abe6f77fd497_1.4854fae622648fca1b9163c24ba59e13.jpeg",
+    "description": "Known for Super Mario 64 and Ocarina of Time, setting new 3D gameplay standards.",
+    "video" :"https://www.youtube.com/watch?v=vET-iI33fLM"
   },
   {
     "id": 22,
@@ -216,8 +213,10 @@
     "title": "Final Fantasy VII",
     "type": "game",
     "generation": "5th",
-    "image": "images/ff7.png",
-    "description": "A landmark JRPG that popularized the genre worldwide."
+    "console": "PlayStation",
+    "image": "https://logos-world.net/wp-content/uploads/2023/12/Final-Fantasy-7-Logo.png",
+    "description": "A landmark JRPG that popularized the genre worldwide.",
+    "video": "https://youtu.be/D6-lbtqQ7oY?si=mW-o5l5RGyRA8eeT"
   },
   {
     "id": 23,
@@ -226,77 +225,9 @@
     "title": "The Legend of Zelda: Ocarina of Time",
     "type": "game",
     "generation": "5th",
-    "image": "images/oot.png",
-    "description": "Often considered one of the greatest games ever made."
-  },
-  {
-    "id": 24,
-    "year": 1999,
-    "date": "1999-03-04",
-    "title": "Dreamcast",
-    "type": "console",
-    "generation": "6th",
-    "image": "images/dreamcast.png",
-    "description": "First console with built-in online connectivity; ahead of its time."
-  },
-  {
-    "id": 25,
-    "year": 2000,
-    "date": "2000-03-04",
-    "title": "PlayStation 2",
-    "type": "console",
-    "generation": "6th",
-    "image": "images/ps2.png",
-    "description": "The best-selling console in history with over 155 million units sold."
-  },
-  {
-    "id": 26,
-    "year": 2001,
-    "date": "2001-11-15",
-    "title": "Xbox",
-    "type": "console",
-    "generation": "6th",
-    "image": "images/xbox.png",
-    "description": "Microsoft enters gaming; Halo becomes a defining FPS franchise."
-  },
-  {
-    "id": 27,
-    "year": 2001,
-    "date": "2001-03-21",
-    "title": "Game Boy Advance",
-    "type": "console",
-    "generation": "6th",
-    "image": "images/gba.png",
-    "description": "Nintendo's 32-bit handheld console with major graphical improvements."
-  },
-  {
-    "id": 28,
-    "year": 2004,
-    "date": "2004-11-21",
-    "title": "Nintendo DS",
-    "type": "console",
-    "generation": "6th",
-    "image": "images/ds.png",
-    "description": "Dual-screen touchscreen device that becomes the best-selling handheld ever."
-  },
-  {
-    "id": 29,
-    "year": 2005,
-    "date": "2005-11-22",
-    "title": "Xbox 360",
-    "type": "console",
-    "generation": "7th",
-    "image": "images/xbox360.png",
-    "description": "Brings HD gaming and Xbox Live to the mainstream."
-  },
-  {
-    "id": 30,
-    "year": 2006,
-    "date": "2006-11-19",
-    "title": "Nintendo Wii",
-    "type": "console",
-    "generation": "7th",
-    "image": "images/wii.png",
-    "description": "Introduces motion controls and becomes a global phenomenon."
+    "console": "Nintendo 64",
+    "image": "https://upload.wikimedia.org/wikipedia/en/5/57/The_Legend_of_Zelda_Ocarina_of_Time.jpg",
+    "description": "Often considered one of the greatest games ever made.",
+    "video" : "https://youtu.be/EfUoDfnH9ew?si=YnD-DXciAjJp-WQc"
   }
 ]
