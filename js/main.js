@@ -1,5 +1,19 @@
+import { render1stGenMedia } from "./1stGen.js";
+import { render2ndGenMedia } from "./2ndGen.js";
+import { render3rdGenMedia } from "./3rdGen.js";
+import { render4thGenMedia } from "./4thGen.js";
+import { render5thGenMedia } from "./5thGen.js";
+
+const renderMediaByGen = {
+    "1st": render1stGenMedia,
+    "2nd": render2ndGenMedia,
+    "3rd": render3rdGenMedia,
+    "4th": render4thGenMedia,
+    "5th": render5thGenMedia,
+};
+
 // svg width height
-const viewHeight = 800;
+const viewHeight = 600;
 const viewWidth = document.getElementById("timeline-container").clientWidth;
 
 const svg = d3.select("#timeline")
@@ -8,10 +22,6 @@ const svg = d3.select("#timeline")
     .style("width", "100%") 
     .style("height", `${viewHeight}px`);
 
-// // select svg
-// const svg = d3.select("#timeline")
-//     .attr("width", viewWidth)
-//     .attr("height", viewHeight);
 
 const container = svg.append("g");
 
@@ -23,6 +33,106 @@ const detailEls = {
     video: document.getElementById("detail-video"),
     image: document.getElementById("detail-image")
 };
+
+const genContentEls = {
+    timelineWrapper: document.getElementById("timeline-wrapper"),
+    genPanel: document.getElementById("gen-content")
+};
+
+const genMediaTargets = {
+    "1st": {
+        table: d3.select("#gen1-table")
+    },
+    "2nd": {
+        chart: d3.select("#gen2-chart")
+    },
+    "3rd": {
+        chart: d3.select("#gen3-chart")
+    },
+    "4th": {
+        chart: d3.select("#gen4-chart")
+    },
+    "5th": {
+        chart: d3.select("#gen5-chart-1"),
+        chart2: d3.select("#gen5-chart-2")
+    },
+};
+const genSections = Array.from(document.querySelectorAll(".gen-section"));
+
+const genInfoEls = {
+    items: Array.from(document.querySelectorAll(".gen-item"))
+};
+
+// run renderer when the target element enters the viewport (with fallback)
+function renderOnVisible(targetEl, renderer, targets) {
+    if (!targetEl || typeof renderer !== "function") {
+        renderer?.(targets);
+        return;
+    }
+    if (!("IntersectionObserver" in window)) {
+        renderer(targets);
+        return;
+    }
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                renderer(targets);
+                obs.disconnect();
+            }
+        });
+    }, { threshold: 0.25 });
+    observer.observe(targetEl);
+}
+
+function showPanel(panel) {
+    const { timelineWrapper, genPanel } = genContentEls;
+    if (panel === "timeline") {
+        timelineWrapper.classList.remove("hidden");
+        genPanel.classList.add("hidden");
+    } else {
+        timelineWrapper.classList.add("hidden");
+        genPanel.classList.remove("hidden");
+    }
+}
+
+function showGenSection(genKey) {
+    genSections.forEach(sec => {
+        const targetId = `gen-${genKey}`;
+        const isTarget = sec.id === targetId;
+        sec.classList.toggle("hidden", !isTarget);
+    });
+}
+
+
+function setGenerationInfo(genKey) {
+    const isTimeline = genKey === "timeline";
+    genInfoEls.items.forEach(li => {
+        li.classList.toggle("active", li.dataset.gen === genKey);
+    });
+    showPanel(isTimeline ? "timeline" : "generation");
+    if (isTimeline) {
+        showGenSection("default");
+        return;
+    }
+
+    showGenSection(genKey);
+    const targets = genMediaTargets[genKey];
+    const renderer = renderMediaByGen[genKey];
+    if (targets && typeof renderer === "function") {
+        const watchEl = targets.chart?.node?.() || targets.table?.node?.();
+        renderOnVisible(watchEl, renderer, targets);
+    }
+}
+
+genInfoEls.items.forEach(li => {
+    li.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "auto" });
+        setGenerationInfo(li.dataset.gen);
+    });
+});
+
+// seed sidebar info
+setGenerationInfo("timeline");
 
 const videoMap = {
     "Magnavox Odyssey": "https://www.youtube.com/embed/oVV2Fe6Z9xo",
@@ -77,18 +187,15 @@ const generations = [
     { name: "3rd", color: "#F4D35E" },
     { name: "4th", color: "#EE964B" },
     { name: "5th", color: "#F95738" },
-    { name: "6th", color: "#9B5DE5" },
-    { name: "7th", color: "#252422" }
 ];
 
 // length per generation
-const genWidth = 1200;
+const genWidth = 800;
 const cardWidth = 200;
-const paddingEnd = cardWidth + 120; // room for the last card
 let genX = 0;
 
 // timeline width (add padding so the last card isn't clipped)
-const timelineWidth = genWidth * generations.length + paddingEnd;
+const timelineWidth = genWidth * generations.length;
 
 // drag activiate
 const zoom = d3.zoom()
@@ -126,11 +233,12 @@ container.selectAll("text.genlabel")
 
 // retrieve json datas
 d3.json("data/events.json").then(events => {
+    
+    const eventExtent = d3.extent(events, d => new Date(d.date));
 
-    // xScale: 날짜 → 가로 좌표
     const xScale = d3.scaleTime()
-        .domain([new Date(1972, 0, 1), new Date(2007, 0, 1)])
-        .range([0, timelineWidth - paddingEnd]);
+        .domain(eventExtent)
+        .range([0, timelineWidth]);
 
     // card group
     const card = container.selectAll("g.card")
@@ -191,25 +299,6 @@ d3.json("data/events.json").then(events => {
         .attr("height", 38) 
         .style("padding-top", "2px")
         .text(d => d.title);
-
-
-    // description
-    card.append("foreignObject")
-    .attr("x", 10)
-    .attr("y", 95)
-    .attr("width", 180)
-    .attr("height", 70)
-    .append("xhtml:div")
-    .style("font", "11px sans-serif")
-    .style("color", "#666")
-    .style("line-height", "1.35")
-    .style("overflow", "hidden")
-    .style("display", "-webkit-box")
-    .style("-webkit-line-clamp", "3")
-    .style("-webkit-box-orient", "vertical")
-    .style("text-overflow", "ellipsis")
-    .text(d => d.description);
-
     // add hover handlers with explicit transform attr changes (no CSS transform)
     card
         .on("mouseover", function(event, d) {
