@@ -31,11 +31,13 @@ function renderAtariShockChart(container) {
     const tooltip = d3.select("body")
         .append("div")
         .style("position", "absolute")
-        .style("background", "#111")
-        .style("color", "#fff")
+        .style("background", "rgba(10, 20, 40, 0.92)")
+        .style("color", "#e8eeff")
         .style("padding", "6px 8px")
-        .style("border-radius", "4px")
+        .style("border-radius", "6px")
         .style("font-size", "12px")
+        .style("border", "1px solid rgba(111, 255, 233, 0.35)")
+        .style("box-shadow", "0 10px 30px rgba(0,0,0,0.35)")
         .style("pointer-events", "none")
         .style("opacity", 0);
 
@@ -59,19 +61,28 @@ function renderAtariShockChart(container) {
 
     // axes
     svg.append("g")
+        .attr("class", "axis axis-x")
         .attr("transform", `translate(0,${h - margin.bottom})`)
         .call(d3.axisBottom(x).ticks(7).tickFormat(d3.format("d")));
 
     svg.append("g")
+        .attr("class", "axis axis-y")
         .attr("transform", `translate(${margin.left},0)`)
         .call(d3.axisLeft(y).ticks(5));
+
+    svg.selectAll(".axis path, .axis line")
+        .attr("stroke", "rgba(232, 238, 255, 0.35)");
+
+    svg.selectAll(".axis text")
+        .attr("fill", "#9fb3e9")
+        .attr("font-size", 12);
 
     // path
     const path = svg.append("path")
         .datum(data)
         .attr("fill", "none")
-        .attr("stroke", "black")
-        .attr("stroke-width", 2.5)
+        .attr("stroke", "#6fffe9")
+        .attr("stroke-width", 3)
         .attr("d", line);
 
     const totalLength = path.node().getTotalLength();
@@ -90,7 +101,7 @@ function renderAtariShockChart(container) {
         .attr("x2", x(1983))
         .attr("y1", margin.top)
         .attr("y2", h - margin.bottom)
-        .attr("stroke", "#991b1b")
+        .attr("stroke", "#ff7bca")
         .attr("stroke-dasharray", "4 4")
         .attr("opacity", 0)
         .transition()
@@ -101,7 +112,7 @@ function renderAtariShockChart(container) {
     svg.append("text")
         .attr("x", x(1983) + 6)
         .attr("y", margin.top + 12)
-        .attr("fill", "#991b1b")
+        .attr("fill", "#ff7bca")
         .attr("font-size", 12)
         .attr("opacity", 0)
         .text("atari shock")
@@ -119,14 +130,16 @@ function renderAtariShockChart(container) {
         .attr("cx", d => x(d.year))
         .attr("cy", d => y(d.revenue))
         .attr("r", 0)
-        .attr("fill", "#111")
+        .attr("fill", "#0e1328")
+        .attr("stroke", "#ff7bca")
+        .attr("stroke-width", 2)
         .attr("opacity", 0);
 
     points
         .transition()
         .delay((d, i) => 300 + i * 100)
         .duration(600)
-        .attr("r", 4);  
+        .attr("r", 5);  
 
     // hover
     svg.append("rect")
@@ -146,7 +159,7 @@ function renderAtariShockChart(container) {
         .attr("y", 14)
         .attr("text-anchor", "middle")
         .attr("font-size", 12)
-        .attr("fill", "#374151")
+        .attr("fill", "#9fb3e9")
         .text("Revenue (Billion USD)");
 
     svg.append("text")
@@ -154,7 +167,7 @@ function renderAtariShockChart(container) {
         .attr("y", h - 4)
         .attr("text-anchor", "middle")
         .attr("font-size", 12)
-        .attr("fill", "#374151")
+        .attr("fill", "#9fb3e9")
         .text("Year");
 
     const bisectYear = d3.bisector(d => d.year).left;

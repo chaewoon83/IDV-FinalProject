@@ -107,16 +107,18 @@ function renderGameSalesBarChart(container) {
     .join("div")
     .attr("class", "bar-tooltip")
     .style("position", "absolute")
-    .style("background", "#111")
-    .style("color", "#fff")
+    .style("background", "rgba(10, 20, 40, 0.92)")
+    .style("color", "#e8eeff")
     .style("padding", "6px 8px")
-    .style("border-radius", "4px")
+    .style("border-radius", "6px")
     .style("font-size", "12px")
+    .style("border", "1px solid rgba(111, 255, 233, 0.35)")
+    .style("box-shadow", "0 10px 30px rgba(0,0,0,0.35)")
     .style("pointer-events", "none")
     .style("opacity", 0);
     const colorScale = d3.scaleOrdinal()
         .domain(["PS1", "N64"])
-        .range(["#2563eb", "#dc2626"]);
+        .range(["#6fffe9", "#ff7bca"]);
 
 
     const svg = container.append("svg")
@@ -140,10 +142,10 @@ function renderGameSalesBarChart(container) {
     svg.selectAll("rect.bar").lower();
 
 
-    // ---------- Initial render ----------
+    //Initial render
     update("All");
 
-    // ---------- Update function ----------
+    //Update function
     function update(filter) {
 
         const filteredData =
@@ -159,17 +161,24 @@ function renderGameSalesBarChart(container) {
         xAxis.transition().call(d3.axisBottom(x));
         yAxis.transition().call(d3.axisLeft(y));
 
+        svg.selectAll(".tick text")
+            .attr("fill", "#9fb3e9")
+            .attr("font-size", 12);
+
+        svg.selectAll(".domain, .tick line")
+            .attr("stroke", "rgba(232, 238, 255, 0.25)");
+
         const bars = svg.selectAll("rect.bar")
         .data(filteredData, d => d.title);
 
-        // EXIT
+        //bar exit
         bars.exit()
         .transition()
         .duration(400)
         .attr("width", 0)
         .remove();
 
-        // UPDATE
+        //bar update
         bars.transition()
         .duration(600)
         .attr("y", d => y(d.title))
@@ -178,7 +187,7 @@ function renderGameSalesBarChart(container) {
         .attr("fill", d => colorScale(d.console));
 
 
-        // ENTER
+        //bar enter
         bars.enter()
         .append("rect")
         .attr("class", "bar")
@@ -213,23 +222,33 @@ function renderGameSalesBarChart(container) {
         svg.selectAll("rect.bar").lower();
     }
 
-    // ---------- Axis label ----------
+    //Axis labels for game sold
     svg.append("text")
         .attr("x", w / 2 + margin.left/2)
         .attr("y", h - 4)
         .attr("text-anchor", "middle")
         .attr("font-size", 14)
+        .attr("fill", "#e8eeff")
         .text("Units Sold (Million)");
         
-    // ---------- Buttons ----------
+    //Buttons for radar
     const controls = container.append("div")
-        .style("margin-bottom", "10px");
+        .style("margin-bottom", "10px")
+        .style("display", "flex")
+        .style("gap", "8px");
 
 
     ["All", "PS1", "N64"].forEach(type => {
         controls.append("button")
         .text(type)
-        .style("margin-right", "8px")
+        .style("margin-right", "0")
+        .style("padding", "6px 12px")
+        .style("border-radius", "10px")
+        .style("border", "1px solid rgba(111, 255, 233, 0.35)")
+        .style("background", "rgba(14, 19, 40, 0.9)")
+        .style("color", "#e8eeff")
+        .style("cursor", "pointer")
+        .style("box-shadow", "0 6px 18px rgba(0,0,0,0.25)")
         .on("click", () => update(type));
     });
 }
@@ -247,20 +266,20 @@ function renderGameScreenshot(container) {
     const svg = container.append("svg")
     .attr("width", w)
     .attr("height", h)
-    .style("border", "1px solid #d1d5db")
-    .style("border-radius", "8px")
-    .style("background", "#000");
+    .style("border", "1px solid rgba(111, 255, 233, 0.25)")
+    .style("border-radius", "12px")
+    .style("background", "#050914");
 
-    // ---------- defs ----------
+    //defs
     const defs = svg.append("defs");
 
     const clip = defs.append("clipPath")
     .attr("id", "clip-left");
 
     const clipRect = clip.append("rect")
-    .attr("x", 0)
+    .attr("x", w / 2)
     .attr("y", 0)
-    .attr("width", 10)         
+    .attr("width", w / 2)         
     .attr("height", h);
 
     // Left Image
@@ -278,10 +297,10 @@ function renderGameScreenshot(container) {
     .attr("clip-path", "url(#clip-left)")
     .attr("preserveAspectRatio", "xMidYMid slice");
 
-    // ---------- slider ----------
+    //slider
     const slider = svg.append("line")
-    .attr("x1", 0)
-    .attr("x2", 0)
+    .attr("x1", w / 2)
+    .attr("x2", w / 2)
     .attr("y1", 0)
     .attr("y2", h)
     .attr("stroke", "#fff")
@@ -289,17 +308,17 @@ function renderGameScreenshot(container) {
     .style("cursor", "ew-resize");
 
     const handle = svg.append("circle")
-    .attr("cx", 0)
+    .attr("cx", w / 2)
     .attr("cy", h / 2)
     .attr("r", 8)
     .attr("fill", "#fff")
     .style("cursor", "ew-resize");
 
-    // ---------- drag ----------
+    //slider drag
     const drag = d3.drag().on("drag", (event) => {
     const x = Math.max(0, Math.min(w, event.x));
 
-    clipRect.attr("width", x);
+    clipRect.attr("x", x).attr("width", w - x);
     slider.attr("x1", x).attr("x2", x);
     handle.attr("cx", x);
     });
@@ -307,7 +326,7 @@ function renderGameScreenshot(container) {
     slider.call(drag);
     handle.call(drag);
 
-    // ---------- labels ----------
+    // 2d 3d labels
     svg.append("text")
     .attr("x", 8)
     .attr("y", 18)
@@ -323,7 +342,7 @@ function renderGameScreenshot(container) {
     .attr("text-anchor", "end")
     .text("3D");
 
-    // ---------- buttons ----------
+    //2d to 3d buttons
     const controls = container.append("div")
     .style("margin-top", "8px")
     .style("display", "flex")
@@ -341,13 +360,21 @@ function renderGameScreenshot(container) {
     gameImagePairs.forEach(game => {
     controls.append("button")
     .text(game.title)
+    .style("margin-right", "0")
+    .style("padding", "6px 12px")
+    .style("border-radius", "10px")
+    .style("border", "1px solid rgba(111, 255, 233, 0.35)")
+    .style("background", "rgba(14, 19, 40, 0.9)")
+    .style("color", "#e8eeff")
+    .style("cursor", "pointer")
+    .style("box-shadow", "0 6px 18px rgba(0,0,0,0.25)")
     .on("click", () => {
         // change images
         leftImage.attr("href", game.before);
         rightImage.attr("href", game.after);
-        clipRect.attr("width", 0);
-        slider.attr("x1", 0).attr("x2", 0);
-        handle.attr("cx", 0);
+        clipRect.attr("x", w / 2).attr("width", w / 2);
+        slider.attr("x1", w / 2).attr("x2", w / 2);
+        handle.attr("cx", w / 2);
         setDescription(game);
         });
     });

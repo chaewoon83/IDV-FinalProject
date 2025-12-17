@@ -2,7 +2,7 @@ const radarDataByMode = {
   technical: [
     {
       name: "Super Famicom",
-      color: "#dc2626",
+      color: "#ff7bca",
       values: [
         { axis: "CPU Speed", value: 6 },
         { axis: "Graphics Colors", value: 9 },
@@ -14,7 +14,7 @@ const radarDataByMode = {
     },
     {
       name: "Sega Mega Drive",
-      color: "#2563eb",
+      color: "#6fffe9",
       values: [
         { axis: "CPU Speed", value: 9 },
         { axis: "Graphics Colors", value: 6 },
@@ -29,7 +29,7 @@ const radarDataByMode = {
   media: [
     {
       name: "Super Famicom",
-      color: "#dc2626",
+      color: "#ff7bca",
       values: [
         { axis: "Game Library", value: 9 },
         { axis: "Audio Experience", value: 9 },
@@ -41,7 +41,7 @@ const radarDataByMode = {
     },
     {
       name: "Sega Mega Drive",
-      color: "#2563eb",
+      color: "#6fffe9",
       values: [
         { axis: "Game Library", value: 7 },
         { axis: "Audio Experience", value: 6 },
@@ -124,11 +124,13 @@ function renderRadarChart(container, mode) {
     .join("div")
     .attr("class", "radar-tooltip")
     .style("position", "absolute")
-    .style("background", "#111")
-    .style("color", "#fff")
+    .style("background", "rgba(10, 20, 40, 0.92)")
+    .style("color", "#e8eeff")
     .style("padding", "6px 8px")
-    .style("border-radius", "4px")
+    .style("border-radius", "6px")
     .style("font-size", "12px")
+    .style("border", "1px solid rgba(111, 255, 233, 0.35)")
+    .style("box-shadow", "0 10px 30px rgba(0,0,0,0.35)")
     .style("pointer-events", "none")
     .style("opacity", 0);
 
@@ -158,7 +160,7 @@ function renderRadarChart(container, mode) {
             g.append("circle")
             .attr("r", radius * (lvl / levels))
             .attr("fill", "none")
-            .attr("stroke", "#d1d5db")
+            .attr("stroke", "rgba(232, 238, 255, 0.18)")
             .attr("stroke-dasharray", "2 2");
         }
 
@@ -171,7 +173,7 @@ function renderRadarChart(container, mode) {
     g.append("line")
         .attr("x2", rScale(10) * x)
         .attr("y2", rScale(10) * y)
-        .attr("stroke", "#9ca3af");
+        .attr("stroke", "rgba(232, 238, 255, 0.25)");
 
     g.append("text")
     .attr("x", (rScale(10) + 16) * x)
@@ -179,7 +181,7 @@ function renderRadarChart(container, mode) {
     .attr("dy", "0.35em")
     .attr("text-anchor", x > 0.1 ? "start" : x < -0.1 ? "end" : "middle")
     .attr("font-size", 11)
-    .attr("fill", "#374151")
+    .attr("fill", "#9fb3e9")
     .text(axis)
     .on("mouseover", (event) => {
         tooltip
@@ -245,6 +247,7 @@ function renderRadarChart(container, mode) {
         .attr("x", 18)
         .attr("y", 10)
         .attr("font-size", 12)
+        .attr("fill", "#e8eeff")
         .text(d.name);
     });
 }

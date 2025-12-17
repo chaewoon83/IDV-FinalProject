@@ -44,7 +44,7 @@ function renderArcadeConsumerChart(container) {
 
     const color = d3.scaleOrdinal()
         .domain(["Arcade", "Consumer"])
-        .range(["#2563eb", "#dc2626"]);
+        .range(["#6fffe9", "#ff7bca"]);
 
     const pie = d3.pie()
         .sort(null)
@@ -58,12 +58,12 @@ function renderArcadeConsumerChart(container) {
         .attr("text-anchor", "middle")
         .attr("y", 4)
         .attr("font-size", 12)
-        .attr("fill", "#374151");
+        .attr("fill", "#e8eeff");
 
     // legend (bottom-right inside chart)
     const legendItems = [
-        { key: "Arcade", color: "#2563eb", label: "Arcade" },
-        { key: "Consumer", color: "#dc2626", label: "Console / PC" }
+        { key: "Arcade", color: "#6fffe9", label: "Arcade" },
+        { key: "Consumer", color: "#ff7bca", label: "Console / PC" }
     ];
 
     const legendSpacing = 80;
@@ -91,7 +91,7 @@ function renderArcadeConsumerChart(container) {
         .attr("x", 16)
         .attr("y", 10)
         .attr("font-size", 11)
-        .attr("fill", "#111827")
+        .attr("fill", "#9fb3e9")
         .text(d => d.label);
 
     // ---------- slider (below chart) ----------
@@ -101,10 +101,12 @@ function renderArcadeConsumerChart(container) {
 
     control.append("span")
         .text("Year: ")
-        .style("margin-right", "6px");
+        .style("margin-right", "6px")
+        .style("color", "#e8eeff");
 
     const yearLabel = control.append("span")
         .style("font-weight", "bold")
+        .style("color", "#6fffe9")
         .text("1982");
 
     const slider = control.append("input")

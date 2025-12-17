@@ -274,7 +274,8 @@ d3.json("data/events.json").then(events => {
         .attr("x", 115)
         .attr("y", 30)
         .attr("font-weight", "bold")
-        .attr("font-size", 18);
+        .attr("font-size", 18)
+        .attr("fill", "#e8eeff");
 
     // title
     card.append("foreignObject")
@@ -287,8 +288,8 @@ d3.json("data/events.json").then(events => {
         .style("display", "flex")
         .style("align-items", "center")   
         .style("justify-content", "flex-start")
-        .style("font", "13px sans-serif-Bold")
-        .style("color", "#131313ff")
+        .style("font", "13px 'Space Grotesk', 'Segoe UI', sans-serif")
+        .style("color", "#e8eeff")
         .style("overflow", "hidden")
         .style("line-height", "1.35")
         .style("display", "-webkit-box")
